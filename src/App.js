@@ -14,12 +14,15 @@ function App() {
 
     const handleChange = (event) => setName(event.target.value)
 
+    const filterCountries = countries.filter((country) => country.toLowerCase().includes(name))
+
     return (
         <>
             <p>
                 find countries
                 <input value={name} onChange={handleChange} />
             </p>
+            {filterCountries.length > 10 ? "too many matches" : filterCountries.map((country) => <p key={country}>{country}</p>)}
         </>
     )
 }
