@@ -3,6 +3,7 @@ import axios from "axios"
 
 function App() {
     const apiURL = "https://restcountries.com/v3.1/all"
+    const api_key = process.env.REACT_APP_API_KEY
     const [countries, setCountries] = useState([])
     const [name, setName] = useState("")
 
