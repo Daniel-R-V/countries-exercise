@@ -7,8 +7,9 @@ const Weather = ({ name }) => {
     const [result, setResult] = useState([])
 
     useEffect(() => {
-        axios.get(`http://api.weatherstack.com/current?access_key=${api_key}&query=${name}`).then((response) => {
+        axios.get(`http://api.weatherstack.com/current?access_key=${api_key}&query=France`).then((response) => {
             setResult(response.data)
+            console.log(result)
         })
     }, [])
 }
