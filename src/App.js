@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
+import Weather from "./Weather"
 
 function App() {
     const apiURL = "https://restcountries.com/v3.1/all"
-    const api_key = process.env.REACT_APP_API_KEY
     const [countries, setCountries] = useState([])
     const [name, setName] = useState("")
 
@@ -48,6 +48,7 @@ const FilterResponse = ({ filterCountries, setName }) => {
                 <div>
                     <img src={country.flags.png} alt={country.name} />
                 </div>
+                <Weather />
             </div>
         )
     }
