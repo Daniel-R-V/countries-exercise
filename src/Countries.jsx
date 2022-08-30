@@ -2,10 +2,10 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import FilterResponse from "./FilterResponse"
 
-const Countries = () => {
+const Countries = ({ country, setCountry }) => {
     const apiURL = "https://restcountries.com/v3.1/all"
     const [countries, setCountries] = useState([])
-    const [name, setName] = useState("")
+    const [value, setValue] = useState("")
 
     useEffect(() => {
         axios.get(apiURL).then((response) => {
@@ -13,17 +13,23 @@ const Countries = () => {
         })
     }, [])
 
-    const handleChange = (event) => setName(event.target.value)
+    useEffect(() => {
+        if (country.name?.common) {
+            setValue(country.name.common)
+        }
+    }, [country])
 
-    const filterCountries = countries.filter((country) => country.name.common.toLowerCase().includes(name))
+    const handleChange = (event) => setValue(event.target.value)
+
+    const filterCountries = countries.filter((c) => c.name?.common.toLowerCase().includes(value.toLowerCase()))
 
     return (
         <>
             <p>
                 find countries
-                <input value={name} onChange={handleChange} />
+                <input value={value} onChange={handleChange} />
             </p>
-            <FilterResponse filterCountries={filterCountries} setName={setName} />
+            <FilterResponse filterCountries={filterCountries} setCountry={setCountry} />
         </>
     )
 }

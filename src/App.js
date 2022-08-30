@@ -1,11 +1,13 @@
 import Countries from "./Countries"
 import Weather from "./Weather"
+import { useState } from "react"
 
 function App() {
+    const [country, setCountry] = useState({})
     return (
         <>
-            <Countries />
-            <Weather />
+            <Countries country={country} setCountry={setCountry} />
+            <Weather country={country} />
         </>
     )
 }

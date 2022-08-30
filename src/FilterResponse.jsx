@@ -1,4 +1,4 @@
-const FilterResponse = ({ filterCountries, setName }) => {
+const FilterResponse = ({ filterCountries, setCountry }) => {
     if (filterCountries.length === 1) {
         const country = filterCountries[0]
         return (
@@ -27,9 +27,7 @@ const FilterResponse = ({ filterCountries, setName }) => {
         return (
             <div key={country.name.common}>
                 {country.name.common}
-                <button value={country.name.common.toLowerCase()} onClick={(event) => setName(event.target.value)}>
-                    show
-                </button>
+                <button onClick={() => setCountry(country)}>show</button>
             </div>
         )
     })
