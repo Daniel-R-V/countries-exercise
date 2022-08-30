@@ -1,13 +1,9 @@
-import Countries from "./Countries"
-import Weather from "./Weather"
-import { useState } from "react"
+import Countries from "./components/Countries"
 
 function App() {
-    const [country, setCountry] = useState({})
     return (
         <>
-            <Countries country={country} setCountry={setCountry} />
-            <Weather country={country} />
+            <Countries />
         </>
     )
 }
