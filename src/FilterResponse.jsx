@@ -1,5 +1,13 @@
+
 const FilterResponse = ({ filteringCountries, setValue, value }) => {
     if (filteringCountries.length > 10) {
+
+const FilterResponse = ({ filterCountries, setCountry }) => {
+    if (filterCountries.length === 1) {
+        console.log("testing!")
+        console.log("testing again")
+        const country = filterCountries[0]
+
         return (
             <div>
                 <p>Too many matches, specify another filter</p>
