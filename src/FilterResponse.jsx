@@ -1,41 +1,49 @@
+
+const FilterResponse = ({ filteringCountries, setValue, value }) => {
+    if (filteringCountries.length > 10) {
+
 const FilterResponse = ({ filterCountries, setCountry }) => {
     if (filterCountries.length === 1) {
         console.log("testing!")
-
-
         console.log("testing again")
         console.log("testingggggg")
         const country = filterCountries[0]
+
         return (
             <div>
-                <h1>{country.name.common}</h1>
-
-                <p>capital {country.capital}</p>
-                <p>population {country.population}</p>
-
-                <h1>languages</h1>
-
-                <ul>
-                    {Object.values(country.languages).map((language) => (
-                        <li key={language}>{language}</li>
-                    ))}
-                </ul>
-                <div>
-                    <img src={country.flags.png} alt={country.name} />
-                </div>
+                <p>Too many matches, specify another filter</p>
             </div>
         )
     }
 
-    if (filterCountries.length > 10) return <div>Too many matches, specify another filter</div>
-    return filterCountries.map((country) => {
+    if (filteringCountries.length === 1) {
+        console.log("Testing again!")
         return (
-            <div key={country.name.common}>
-                {country.name.common}
-                <button onClick={() => setCountry(country)}>show</button>
+            <div>
+                <h1>{filteringCountries[0].name.common}</h1>
+                <p>capital {filteringCountries[0].capital}</p>
+                <p>population {filteringCountries[0].population}</p>
+                <h2>languages</h2>
+                <ul>
+                    {Object.values(filteringCountries[0].languages).map((language) => (
+                        <li key={language}>{language}</li>
+                    ))}
+                </ul>
+                <img src={filteringCountries[0].flags.png} alt={filteringCountries[0].name.common} />
             </div>
         )
-    })
+    }
+
+    return (
+        <div>
+            {filteringCountries.map((country) => (
+                <p key={country.name.common}>
+                    {country.name.common}
+                    <button onClick={() => setValue(country.name.common.toLowerCase())}>show</button>
+                </p>
+            ))}
+        </div>
+    )
 }
 
 export default FilterResponse
