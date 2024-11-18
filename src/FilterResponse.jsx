@@ -4,6 +4,7 @@ const FilterResponse = ({ filterCountries, setCountry }) => {
 
 
         console.log("testing again")
+        console.log("testingggggg")
         const country = filterCountries[0]
         return (
             <div>
