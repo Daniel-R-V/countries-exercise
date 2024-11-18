@@ -8,7 +8,7 @@ const FilterResponse = ({ filteringCountries, setValue, value }) => {
     }
 
     if (filteringCountries.length === 1) {
-        console.log("Testing!")
+        console.log("Testing again!")
         return (
             <div>
                 <h1>{filteringCountries[0].name.common}</h1>
