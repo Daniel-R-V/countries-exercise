@@ -1,5 +1,6 @@
 const FilterResponse = ({ filterCountries, setCountry }) => {
     if (filterCountries.length === 1) {
+        console.log("testing!")
         const country = filterCountries[0]
         return (
             <div>
